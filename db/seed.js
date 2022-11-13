@@ -13,7 +13,7 @@ const pool = new Pool({
 const sql_create_users = `CREATE TABLE users (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_name text NOT NULL UNIQUE,
-    password text NOT NULL,
+    password text NOT NULL
 )`;
 
 const sql_create_users_id_index = `CREATE UNIQUE INDEX idx_usersId on users(id)`;
@@ -21,8 +21,8 @@ const sql_create_users_id_index = `CREATE UNIQUE INDEX idx_usersId on users(id)`
 const sql_create_notes = `CREATE TABLE notes (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id int REFERENCES users(id),
-    note text NOT NULL,
-)`;
+    note text NOT NULL
+);`;
 
 const sql_create_notes_id_index = `CREATE UNIQUE INDEX idx_notesId on notes(id)`;
 
@@ -40,8 +40,8 @@ const sql_insert_users = `INSERT INTO users (
     user_name, password
     ) VALUES 
     ('johnDoe', 'testpassword1'),
-    ('willSteal', 'testpassword2),
-    ('joeSmith', 'testpassword3)`;
+    ('willSteal', 'testpassword2'),
+    ('joeSmith', 'testpassword3')`;
 
 const sql_insert_notes = `INSERT INTO notes (
     user_id, note) VALUES 
@@ -49,8 +49,7 @@ const sql_insert_notes = `INSERT INTO notes (
     (1, 'buy list of this'),
     (2, 'Some other stuff'),
     (3, 'joes secret note'),
-    (3, 'joes second secret note')
-)`;
+    (3, 'joes second secret note')`;
 
 let table_names = [
     "users",
